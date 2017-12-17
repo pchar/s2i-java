@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker 'maven:3.3.3' }
+    agent { docker 'maven:3-alpine' } 
     stages {
-        stage('build') {
+        stage('Example Build') {
             steps {
-                sh 'mvn --version'
+                sh 'mvn -B clean verify'
             }
         }
     }
