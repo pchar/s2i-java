@@ -39,12 +39,13 @@ COPY ./contrib/settings.xml $HOME/.m2/
 LABEL io.openshift.s2i.scripts-url=image:///usr/local/sti
 COPY ./sti/bin/ /usr/local/sti
 ############### MULE STUFF  #####################
+ENV MULE_VERSION=3.9.0
 
-RUN wget https://repository.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/3.5.0/mule-standalone-3.5.0.tar.gz
-RUN cd /opt && tar xvzf ~/mule-standalone-3.5.0.tar.gz
-RUN echo "4a94356f7401ac8be30a992a414ca9b9 /mule-standalone-3.5.0.tar.gz" | md5sum -c
-RUN rm ~/mule-standalone-3.5.0.tar.gz
-RUN ln -s /opt/mule-standalone-3.5.0 /opt/mule 
+RUN wget https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/$MULE_VERSION/mule-standalone-$MULE_VERSION.tar.gz
+RUN cd /opt && tar xvzf ~/mule-standalone-$MULE_VERSION.tar.gz
+RUN 
+RUN rm ~/mule-standalone-$MULE_VERSION.tar.gz
+RUN ln -s /opt/mule-standalone-$MULE_VERSION /opt/mule 
 
 
 
