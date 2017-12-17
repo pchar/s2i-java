@@ -41,9 +41,8 @@ COPY ./sti/bin/ /usr/local/sti
 ############### MULE STUFF  #####################
 ENV MULE_VERSION=3.9.0
 
-RUN wget https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/$MULE_VERSION/mule-standalone-$MULE_VERSION.tar.gz
+RUN curl -s  https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/$MULE_VERSION/mule-standalone-$MULE_VERSION.tar.gz -o mule-standalone-$MULE_VERSION.tar.gz  
 RUN cd /opt && tar xvzf ~/mule-standalone-$MULE_VERSION.tar.gz
-RUN 
 RUN rm ~/mule-standalone-$MULE_VERSION.tar.gz
 RUN ln -s /opt/mule-standalone-$MULE_VERSION /opt/mule 
 
