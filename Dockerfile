@@ -36,8 +36,8 @@ LABEL io.k8s.description="Platform for building Mule  applications with maven " 
 # COPY Additional files,configurations that we want to ship by default, like a default setting.xml
 COPY ./contrib/settings.xml $HOME/.m2/
 
-LABEL io.openshift.s2i.scripts-url=image:///usr/local/sti
-COPY ./sti/bin/ /usr/local/sti
+LABEL io.openshift.s2i.scripts-url=image:///usr/libexec/s2i/
+COPY ./sti/bin/ /usr/libexec/s2i/
 ############### MULE STUFF  #####################
 ENV MULE_VERSION=3.9.0
 
