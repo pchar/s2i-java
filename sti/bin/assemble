@@ -18,15 +18,16 @@ if compgen -G "/tmp/src/*" >/dev/null; then
   mkdir -p $LOCAL_SOURCE_DIR
   cp -ad /tmp/src/* $LOCAL_SOURCE_DIR
 fi
+tree  /tmp/src/
 
 ls -l $LOCAL_SOURCE_DIR
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
 
-  if [ -f $LOCAL_SOURCE_DIR/configuration/settings.xml ]; then
+  if [ -f $LOCAL_SOURCE_DIR/settings.xml ]; then
     mkdir -p $HOME/.m2
-    mv $LOCAL_SOURCE_DIR/configuration/settings.xml $HOME/.m2
+    mv $LOCAL_SOURCE_DIR/settings.xml $HOME/.m2
   fi
 
   # We move the rest of the configuration, if provided to the place where the app will run
