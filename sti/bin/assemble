@@ -19,6 +19,7 @@ if compgen -G "/tmp/src/*" >/dev/null; then
   cp -ad /tmp/src/* $LOCAL_SOURCE_DIR
 fi
 
+ls -l $LOCAL_SOURCE_DIR
 
 if [ -d $LOCAL_SOURCE_DIR/configuration ]; then
   echo "Copying config files from project..."
